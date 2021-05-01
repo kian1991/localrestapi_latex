@@ -1,0 +1,14 @@
+\chapter{Einleitung} \label{chp:introduction}
+\section{Projektbeschreibung und Motivation} \label{sec:purpose}
+Dieses Forschungsprojekt umfasst die Konzeption und Entwicklung einer lokal verfügbaren \gls{restapi}. Dabei steht die Simulation eines oder mehrerer Serverendpunkte zur Abfrage von normalerweise entfernten Ressourcen im Mittelpunkt. Die Realisierung dieses Projektes erfordert die Auswahl geeigneter Technologien, die Analyse der Anforderungen sowie das Design und die Entwicklung der Software. Idealerweiser soll die Software so konzipiert werden, dass ein weiteres Projekt an diese Arbeit anknüpfen kann, um einen beispielhaften Anwendungszweck zu illustrieren.\\
+\\ 
+Ein Projekt wie dieses, wird zum Beispiel bei einer Präsentation benötigt, in welcher eine unzureichende Internetverbindung zu erwarten ist. So können Beispieldaten in wiedergegeben werden ohne auf einen entfernten Server zuzugreifen. 
+Desweiteren ist in nahezu allen mittleren bis großen Unternehmen eine restriktive Internetnutzung Standard. Das heißt, dass es während der Entwicklung von neuen Projekten nicht unbedingt möglich ist, auf entfernte Ressourcen zuzugreifen \cite{Hunt.1998}. Auch hier kann eine lokale \gls{restapi} sinnvoll sein, um mit Beispieldaten arbeiten zu können. 
+\newline
+Mock-Ups von Designern können mit Hilfe dieser Software ebenfalls mit generischen Daten versorgt werden, um alle möglichen Ausprägungen in ihren Präsentationen 
+einzuschließen.
+
+\section{Vorgehensweise} \label{sec:approach}
+
+Bei der Entwicklung der Software wird sich an dem Buch \textit{Software Engineering} von \textit{Ian Sommerville} orientiert \cite{Sommerville.2016}. Auf die Anforderungsanalyse wird dabei in \autoref{chp:design} eingegangen, welches ebenfalls die System- und Architekturmodellierung umfasst. Die aus diesem Kapitel entstehenden Resultate, werden anschließend in \autoref{chp:implementation} in die Praxis umgesetzt. Hier wird nun ein vollständiges Programm entwickelt, welches sowohl die \gls{api} als auch eine Benutzeroberfläche zur Anpassung der Endpunkte zur Verfügung stellt. \\ \\ Nach erfolgter Implementierung stellt das \autoref{chp:handbook} ein Handbuch dar, welches die Nutzung der Oberfläche und der \gls{api} illustriert. Im letzten Kapitel wird die Umsetzung überprüft und mit den Anforderungen verglichen. Ein Ausblickt gibt Aufschluss über mögliche Verbesserungen oder Erweiterungen. 
+Die Entwicklung des Programms geschiet mit der Entwicklerumgebung Visual Studio Code\footnote{https://code.visualstudio.com/}. Die schriftliche Ausarbeitung wird in Latex geschrieben und der Quellcode der Abgabe hinzugefügt.

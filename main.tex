@@ -1,0 +1,65 @@
+\documentclass[a4paper,11pt]{scrreprt}
+\include{settings/setup_koma}
+\include{settings/packages}
+
+% Counter to save the state of Roman numbering
+\newcounter{savepage}
+
+\begin{document}
+% Cover Page 
+\include{cover}
+
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+% TOC 
+\tableofcontents 
+\thispagestyle{empty}
+
+% Empty TOC page because of multi-page TOC
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+% List of Figures
+\listoffigures
+
+% List of Abbreviations
+% \printglossary[type=acronym,title=Abkürzungsverzeichnis] % Requires Perl to be installed
+\printnoidxglossaries % Requires no Perl, but is slower
+\clearpage
+
+% Save Roman numbering page
+\setcounter{savepage}{\arabic{page}}
+
+% Surpress intend 
+\setlength{\parindent}{0pt}
+ 
+ 
+% Content
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Blocksatz
+\sloppy
+
+% Keine Einzüge
+\setlength{\parindent}{0em}
+
+{\setstretch{1.5}
+    \include{sections/introduction}
+    \include{sections/design}
+    \include{sections/implementation}
+    \include{sections/handbook}
+    \include{sections/conclusion}
+}
+
+
+\pagenumbering{Roman}
+\setcounter{page}{\thesavepage}
+
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\bibliographystyle{alpha}
+\bibliography{bibliography} % Point to BibTeX literature file e.g. literatur.bib
+
+\include{sections/affidavit}
+
+\end{document}

@@ -1,0 +1,43 @@
+\chapter{Evaluation} \label{chp:conclusion}
+
+\section{Umsetzung} \label{sec:implementation}
+
+In diesem Abschnitt wird die Software auf die Einhaltung der in der Anforderungsanalyse festgelegten Eigenschaften geprüft. 
+
+\paragraph{Funktionale Anforderungen}
+
+Die funktionalen Anforderungen beschreiben Eigenschaften, die mit der direkten Bedienung der Software einhergehen. In diesem Fall wurde festgelegt, dass die Software eine Oberfläche zur Konfiguration der Endpunkte bereitstellen soll. Unterstützt werden muss manuelles oder automatisiertes (durch einlesen einer \gls{csv} Datei) Hinzufügen von Endpunkten. \cite{Sommerville.2016} Zudem sind die Endpunkte visuell darzustellen und die Konfigurationen sollen persistent, über mehrere Programmstarts hinweg, erhalten bleiben.
+\\ \\
+Wie im \autoref{chp:handbook} - dem Handbuch - zu sehen, werden alle visuellen Punkte erfüllt. Sobald die Software startet stellt sie eine Oberfläche bereit, welche all diese Anforderungen abdeckt. Endpunkte können entweder manuell oder mittels \gls{csv}-Upload hinzugefügt werden. 
+Die persistente Speicherung wurde durch das Nutzen einer \textit{sqlite} Datenbank realisiert. 
+Zusammenfassend lässt sich also feststellen, dass alle in der Anforderungsanalyse festgelegten funktionalen Anforderungen eingehalten worden sind.
+
+\paragraph{Nicht-funktionale Anforderungen}
+
+Diese Anforderungen stehen nicht direkt im Bezug zur Benutzung der Software, sondern treffen Aussagen über technische Einschränkungen. Hier wurden drei Anforderungen gestellt. Das Ausführen der Software soll betriebssystemunabhängig und ohne bestehende Internetverbindung möglich sein. Des Weiteren sollen alle im \autoref{chp:design} festgelegten \gls{rest} Standards eingehalten werden. 
+\\ \\
+Auf die Anhaltung der \gls{rest} Konventionen wurde im \autoref{chp:implementation} strikt geachtet. Da die Software einen lokalen Server startet, auf dem sowohl die Oberfläche als auch die \gls{api} zur Verfügung gestellt werden, ist keine Internetverbindung erforderlich.
+
+Der letzte Punkt - die Betriebssystemunabhängigkeit - hat einige Herrausforderungen geborgen, welche im nächsten Kapitel abschließend betrachtet werden.
+
+\section{Fazit} \label{sec:evaluation}
+
+Dieser Abschnitt bewertet den verfolgten Ansatz und zeigt gegebenfalls Alternativen auf.
+Zunächst werden die genutzten Technologien untersucht. Um das Frontend und auch das Backend bereitzustellen kam in diesem Projekt das JavaScript Framework node.js zum Einsatz. Es hat sich als hervorragende Wahl herausgestellt, da alle Bestandteile innerhalb einer gemeinsamen Code-Basis gepflegt werden konnten. Durch die Einhaltung der \gls{mvc} Architektur ist die Ordnerstruktur übersichtlich und modular aufgebaut. \\
+\\
+Bei der Entwicklung des Frontends wurde auf modulares JavaScript und selbsterstelltes \gls{css} gesetzt. Während sich die Funktionalität der Oberfläche sehr gut mit JavaScript umsetzen ließ, kostete die Erstellung eines eigenen \gls{css} Stils sehr viel Zeit. Obwohl der \gls{bem} Ansatz zu guten konsistenten Ergebnissen geführt hat, wäre das Nutzen eines bereits vorhandenen \gls{css} Frameworks wie z.B. \textit{Bootstrap}\footnote{https://getbootstrap.com/} von Vorteil gewesen.
+
+Die Wahl der Datenspeicherung ist in diesem Projekt auf die Nutzung einer sqlite Datenbank gefallen. Um mit node.js eine Anbindung an diese Datenbank sicherzustelllen wird ein Treiber benötigt, welcher in Abhängigkeit zum Betriebssystem kompiliert werden muss \cite{Joschua.20201219}. 
+\\ \\
+Durch die überschaubare Anzahl der anfallenden Datenmengen, wäre eine einfache Datei im z.B. \gls{json} Format sinnvoller gewesen. Somit hätte von einem Betriebssystem aus mit dem Werkzeug pkg ein ausführbares Programm für alle drei geforderten Betriebssysteme gleichzeitig erstellt werden können. 
+\\ Dies wurde zwar durch die Erstellung mehrerer virtueller Maschinen umgangen; dieser Umstand hätte jedoch von Anfang an verhindert werden können. 
+
+Zusammenfassend lässt sich feststellen, dass sich die Software hat bewähren können und alle Anforderungen eingehalten hat. Durch die Ausarbeitung des Nutzerhandbuchs wird es potentiellen Usern leichtfallen Endpunkte zu erstellen und abzurufen. Kompilierte Versionen für die verschiedenen Betriebssysteme werden dieser Ausarbeitung beigefügt.
+
+\section{Ausblick} \label{sec:lookout}
+
+Dieses Projekt hat erfolgreich demonstriert, wie sich eine lokale \gls{restapi} entwicklen und benutzen lässt. Mit dieser Software ist es nun möglich Beispieldaten für eine Fremd-Anwendung bereitzustellen, welche vollständig modifizierbar sind.
+
+Ein weiterführendes Projekt könnte diesen Ansatz vervollständigen und zum Beispiel Authentifizierungs-Methoden einführen, welche in der Oberfläche einstellbar wären. Denkbar wäre hier zum Beispiel eine \textit{Digest Authentifizierung} \cite{NetworkWorkingGroup.2005}.
+
+Ein weiterer verfolgbarer Ansatz wäre die Erstellung einer Software oder mobilen App, welche die lokale \gls{restapi} nutzt, um Daten visuell darzustellen. Denkbar wäre zum Beispiel ein Online-Shop oder eine Monitoring-Applikation zur Überwachung von Industrieanlagen. 

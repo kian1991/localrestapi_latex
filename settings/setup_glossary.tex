@@ -1,0 +1,40 @@
+% Print first use of a GLS in italic
+\newcommand*{\glossfirstformat}[1]{\textit{#1}}
+
+\newacronymstyle{myacro}
+{%
+  \GlsUseAcrEntryDispStyle{long-short}%
+}%
+{%
+  \GlsUseAcrStyleDefs{long-short}%
+  \renewcommand*{\genacrfullformat}[1]{%
+   \glossfirstformat{\glsentrylong{##1}}\space
+   (\glsentryshort{##1})%
+  }%
+  \renewcommand*{\Genacrfullformat}[2]{%
+   \glossfirstformat{\Glsentrylong{##1}}\space
+   (\glsentryshort{##1})%
+  }%
+  \renewcommand*{\genplacrfullformat}[2]{%
+   \glossfirstformat{\glsentrylongpl{##1}}\space
+   (\glsentryshortpl{##1})%
+  }%
+  \renewcommand*{\Genplacrfullformat}[2]{%
+   \glossfirstformat{\Glsentrylongpl{##1}}\space
+   (\glsentryshortpl{##1})%
+  }%
+}
+
+\setacronymstyle{myacro}
+
+\defglsentryfmt{%
+  \ifglshaslong{\glslabel}{%
+    \glsgenacfmt%
+  }{%
+    \ifglsused{\glslabel}{%
+      \glsgenentryfmt%
+    }{%
+      \glossfirstformat{\glsgenentryfmt}%
+    }%
+  }%
+}

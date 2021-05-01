@@ -1,0 +1,62 @@
+% Set margins
+% \usepackage{geometry}
+% \geometry{
+%   a4paper,
+%   left=30mm,
+%   top=30mm,
+%   right=20mm,
+%   bottom=20mm
+% }
+% Set document language
+\usepackage[ngerman]{babel}
+% Set character encoding
+\usepackage[utf8]{inputenc}
+% Set font enconding
+\usepackage[T1]{fontenc}
+% Allow usage of pictures
+\usepackage{graphicx}
+% Use Book-Style tables
+\usepackage{booktabs}
+% tabitem with bullet
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+% Use modern default font
+\usepackage{lmodern}
+% Arial font
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+% Remove trailing dot from chapter numbering
+\renewcommand{\autodot}{}
+% Enable mutli-columns
+\usepackage{multicol}
+% Enables setting a linespacing surrounding all sections
+\usepackage{setspace}
+% Remove vertical seperation of items in lists
+\usepackage{enumitem}
+\setlist{noitemsep}
+% Continuous numbering of footnotes spanning multiple chapters
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+% Change figure captions
+\addto\captionsngerman{\renewcommand{\figurename}{Abb.}}
+% float for pictures
+\usepackage{float}
+% Make ToC clickable
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    linktoc=all
+}
+% for Code listings
+\usepackage{listings}
+% Bibliography & Citing
+\usepackage{csquotes}
+% For Blocksatz
+\usepackage{ragged2e}
+
+\let\raggedsection\raggedright
+% Glossary for abbreviations
+\usepackage[acronym,toc]{glossaries}
+\addto\captionsngerman{\renewcommand*{\acronymname}{Abkürzungsverzeichnis}}
+\input{settings/setup_glossary}
+% \makeglossaries  % Requires Perl to be installed
+\makenoidxglossaries
+\loadglsentries[acronym]{abbreviations}
